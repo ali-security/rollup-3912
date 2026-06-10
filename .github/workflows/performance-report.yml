@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   build-artefacts:
-    if: ${{ github.event.pull_request.head.repo.full_name == 'rollup/rollup' || contains( toJson(github.event.pull_request.labels), 'x⁸ ⚙️ build repl artefacts' ) }}
+    if: false
     strategy:
       matrix:
         settings:
@@ -73,6 +73,7 @@ jobs:
           if-no-files-found: error
 
   report:
+    if: false
     needs: build-artefacts
     permissions:
       pull-requests: write # for peter-evans/find-comment and peter-evans/create-or-update-comment
